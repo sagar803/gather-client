@@ -5,7 +5,7 @@ import Chat from './components/Chat';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-const socket = io.connect('http://localhost:3001');
+const socket = io.connect(`${process.env.REACT_APP_API}`);
 
 function App() {
   const [userName , setUserName] = useState('');
@@ -24,7 +24,7 @@ function App() {
         {!showChat 
           ? (
               <div className='joinChatContainer'>
-                <h1>Connect and chat</h1>
+                <h1>Connect and Chat</h1>
                 <input 
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)} 
