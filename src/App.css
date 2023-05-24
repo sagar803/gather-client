@@ -84,7 +84,7 @@ nav {
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.514);
   max-width: 600px;
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 
 .chat-window p {
@@ -122,7 +122,7 @@ nav {
 }
 .chat-window .chat-body {
 /*  height: calc(600px - (45px + 70px)); */
-  height: calc(100% - (45px + 45px));
+  height: calc(100% - (88px));
   border: 1px solid #263238;
   background: #fff;
   position: relative
