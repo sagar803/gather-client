@@ -40,7 +40,7 @@ function App() {
                 <button onClick={joinRoom}>Join</button>
               </div>  
             )
-          : <Chat socket={socket} userName={userName} room={room} />
+          : <Chat setShowChat={setShowChat} socket={socket} userName={userName} room={room} />
         }
         {!showChat && <Footer />}
     </div>
