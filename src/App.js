@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import io from 'socket.io-client'
 import Chat from './components/Chat';
 import Header from './components/Header';
