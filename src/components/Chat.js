@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ScrollToBottom from 'react-scroll-to-bottom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Chat = ({socket, userName, room}) => {
+const Chat = ({ setShowChat, socket, userName, room}) => {
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageHistory, setMessageHistory] = useState([]);
-
+    
     const sendMessage = async () => {
         if (currentMessage !==  ""){
             const messageData = {
@@ -19,7 +21,18 @@ const Chat = ({socket, userName, room}) => {
         }
     }
 
+    const logout = () => {
+        socket.emit("leave_room", {userName, room})
+        setShowChat(false)   
+    }
     useEffect(() => {
+        socket.on("joined_room", (data)=> {
+            toast(`${data.userName} has entered the room`, { autoClose: 2000 });
+
+        })
+        socket.on("left_room", (data)=> {
+            toast(`${data.userName} has left the room`, { autoClose: 2000 });
+        })
         socket.on("recieve_message", (data) => {
             setMessageHistory((msg) => [...msg, data])
         })
@@ -29,9 +42,14 @@ const Chat = ({socket, userName, room}) => {
         <div className="chat-window">
             <div className="chat-header">
                 <p>Joined room '{room}' as {userName}</p>
+                <button className="logout" onClick={logout} >End Chat</button>
             </div>
             <div className="chat-body" >
                 <ScrollToBottom className="message-container">
+                    <div className="disclaimer">
+                        <p>Disclaimer : The messages exchanged within the live room are not recorded, logged, or stored in any form. Once the session ends or the chat is closed, the conversation disappers.</p>
+                        <hr/>
+                    </div>
                     {messageHistory.map((messageContent) => {
                         return (
                             <div className="message" id={userName === messageContent.author? "you" : "other"}>
@@ -59,6 +77,7 @@ const Chat = ({socket, userName, room}) => {
                 />
                 <button onClick={sendMessage}>&#9658;</button>
             </div>
+            <ToastContainer className="custom-toast-container"/>
         </div>
     )
 }
