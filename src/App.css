@@ -81,24 +81,26 @@ nav {
 
 /*Chat Window*/
 .chat-window {
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.514);
   max-width: 600px;
   width: 100%;
-  height: 90%;
+  height: 100%;
+  background-color: #121212;
 }
-
 .chat-window p {
   margin: 0;
+  padding: 0;
 }
 .chat-window .chat-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 45px;
-  background: #263238;
+  background: #ffffff23;
   position: relative;
   cursor: cell;
-  padding: 0 10px;
+  padding: 0 20px;
+  margin: 15px;
+  border-radius: 5px;
 }
 .chat-window .chat-header p {
   color: #fff;
@@ -122,10 +124,12 @@ nav {
 }
 .chat-window .chat-body {
 /*  height: calc(600px - (45px + 70px)); */
-  height: calc(100% - (88px));
-  border: 1px solid #263238;
-  background: #fff;
-  position: relative
+  margin: 15px;
+  height: calc(100% - (170px));
+  background: #ffffff31;
+  position: relative;
+  border-radius: 5px;
+
 }
 .chat-window .chat-body .message-container {
   width: 100%;
@@ -137,6 +141,19 @@ nav {
 .chat-window .chat-body .message-container::-webkit-scrollbar {
   display: none;
 }
+/* For WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 2px; /* Width of the scrollbar */
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scroll handle */
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scroll handle on hover */
+}
+
 .chat-window .chat-body .message {
   height: auto;
   padding: 10px;
@@ -199,19 +216,23 @@ nav {
 }
 
 .chat-window .chat-footer {
+  margin: 15px;
+  background-color: #ffffff23;
   height: 40px;
-  border: 1px solid #263238;
   border-top: none;
   display: flex;
+  border-radius: 5px;
+
 }
 
 .chat-window .chat-footer input {
+  color: white;
+  background-color: #ffffff23;
   height: 100%;
   flex: 85%;
   border: 0;
   padding: 0 0.7em;
   font-size: 1em;
-  border-right: 1px dotted #607d8b;
   outline: none;
   font-family: "Open Sans", sans-serif;
 }
@@ -227,10 +248,6 @@ nav {
   outline: none;
   font-size: 25px;
   color: lightgray;
-}
-
-.chat-window .chat-footer button:hover {
-  color: #43a047;
 }
 .hide {
   opacity: 0 !important;
