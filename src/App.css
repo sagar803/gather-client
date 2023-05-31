@@ -39,7 +39,6 @@ nav {
   text-align: center;
   max-width: 240px;
   border-radius: 5px;
-  border: 1px solid #6f42c1;
   padding: 25px;
   margin: 30px;
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.514);
@@ -77,34 +76,54 @@ nav {
 .joinChatContainer button:hover {
   background: #2e7d32;
 }
-
+@keyframes gradientAnimation {
+  0% {
+    background-position: left top;
+  }
+  25% {
+    background-position: right bottom;
+  }
+  50% {
+    background-position: left top;
+  }
+  75% {
+    background-position: right bottom;
+  }
+  100% {
+    background-position: left top;
+  }
+}
 
 /*Chat Window*/
 .chat-window {
   max-width: 600px;
   width: 100%;
   height: 100%;
-  background-color: #121212;
+  background: linear-gradient(to bottom right, #d5a6ffba, #d5a6ff45, #FFFFFF);
+  background-size: 200% 200%;
+  background-position: left top;
+  animation: gradientAnimation 5s linear infinite;
 }
+
 .chat-window p {
   margin: 0;
   padding: 0;
 }
 .chat-window .chat-header {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: grey;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 45px;
-  background: #ffffff23;
+  background: #ffffff8e;
   position: relative;
   cursor: cell;
   padding: 0 20px;
   margin: 15px;
   border-radius: 5px;
 }
-.chat-window .chat-header p {
-  color: #fff;
-}
+
 .chat-window .chat-header .logout {
   color: white;
   background-color: red;
@@ -126,7 +145,6 @@ nav {
 /*  height: calc(600px - (45px + 70px)); */
   margin: 15px;
   height: calc(100% - (170px));
-  background: #ffffff31;
   position: relative;
   border-radius: 5px;
 
@@ -222,12 +240,13 @@ nav {
   border-top: none;
   display: flex;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
 }
 
 .chat-window .chat-footer input {
-  color: white;
-  background-color: #ffffff23;
+  color: grey;
+  background-color: #ffffff8e;
   height: 100%;
   flex: 85%;
   border: 0;
@@ -244,10 +263,10 @@ nav {
   cursor: pointer;
   flex: 15%;
   height: 100%;
-  background: transparent;
+  background: #00000097;
   outline: none;
   font-size: 25px;
-  color: lightgray;
+  color: rgb(255, 255, 255);
 }
 .hide {
   opacity: 0 !important;
