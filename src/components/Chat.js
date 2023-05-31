@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ScrollToBottom from 'react-scroll-to-bottom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import sendButton from '../assets/send.png'
 
 const Chat = ({ setShowChat, socket, userName, room}) => {
     const [currentMessage, setCurrentMessage] = useState('');
@@ -75,7 +76,7 @@ const Chat = ({ setShowChat, socket, userName, room}) => {
                     placeholder="Send a message...." 
                     onKeyPress={(event)=> (event.key === 'Enter') && sendMessage()}
                 />
-                <button onClick={sendMessage}>&#9658;</button>
+                <button onClick={sendMessage}><img src={sendButton} alt="Send"/></button>
             </div>
             <ToastContainer className="custom-toast-container"/>
         </div>

@@ -16,9 +16,9 @@ body {
 
 /*Navbar*/
 nav {
-  height: 50px;
+  height: 60px;
   width: 100%;
-  background-color: #263238;
+  background-color: rgb(29, 47, 81);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,22 +30,31 @@ nav {
   font-weight: bold;
 }
 
-
+.home{
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.home img{
+  height: 500px;
+}
 
 /*Join chat*/
 .joinChatContainer {
+  background-color: white;
+  height: 300px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-width: 240px;
+  justify-content: space-around;
+  max-width: 300px;
   border-radius: 5px;
-  padding: 25px;
-  margin: 30px;
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.514);
+  padding: 30px;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.349);
 }
 .joinChatContainer h1 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 .joinChatContainer input {
   transition: 0.2s;
@@ -57,7 +66,7 @@ nav {
   outline: none;
 }
 .joinChatContainer input:focus {
-  border-bottom: 2px solid #43a047;
+  border-bottom: 2px solid cornflowerblue;
 }
 .joinChatContainer button {
   width: 225px;
@@ -67,14 +76,14 @@ nav {
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
-  background: #43a047;
+  background: #ffb700;
   color: #fff;
   cursor: pointer;
   outline: none;
 }
 
 .joinChatContainer button:hover {
-  background: #2e7d32;
+  background: rgb(29, 47, 81);
 }
 @keyframes gradientAnimation {
   0% {
@@ -99,7 +108,7 @@ nav {
   max-width: 600px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom right, #d5a6ffba, #d5a6ff45, #FFFFFF);
+  background: linear-gradient(to bottom right, #d5a6ff90, #d5a6ff19, #FFFFFF);
   background-size: 200% 200%;
   background-position: left top;
   animation: gradientAnimation 5s linear infinite;
@@ -110,7 +119,7 @@ nav {
   padding: 0;
 }
 .chat-window .chat-header {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
   color: grey;
   display: flex;
   align-items: center;
@@ -120,7 +129,7 @@ nav {
   position: relative;
   cursor: cell;
   padding: 0 20px;
-  margin: 15px;
+  margin: 15px 10px;
   border-radius: 5px;
 }
 
@@ -143,7 +152,7 @@ nav {
 }
 .chat-window .chat-body {
 /*  height: calc(600px - (45px + 70px)); */
-  margin: 15px;
+  margin: 5px;
   height: calc(100% - (170px));
   position: relative;
   border-radius: 5px;
@@ -161,11 +170,12 @@ nav {
 }
 /* For WebKit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 2px; /* Width of the scrollbar */
+  width: 4px; /* Width of the scrollbar */
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scroll handle */
+  border-radius: 5px;
+  background: #8888888c; /* Color of the scroll handle */
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -234,39 +244,41 @@ nav {
 }
 
 .chat-window .chat-footer {
-  margin: 15px;
-  background-color: #ffffff23;
-  height: 40px;
-  border-top: none;
+  margin: 10px;
+  height: 60px;
   display: flex;
+  justify-content: space-between;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
 }
 
 .chat-window .chat-footer input {
-  color: grey;
+  color: rgb(79, 79, 79);
   background-color: #ffffff8e;
   height: 100%;
-  flex: 85%;
+  width: 78%;
   border: 0;
   padding: 0 0.7em;
   font-size: 1em;
   outline: none;
   font-family: "Open Sans", sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
 }
 
 .chat-window .chat-footer button {
   border: 0;
-  display: grid;
-  place-items: center;
   cursor: pointer;
-  flex: 15%;
+  width: 15%;
   height: 100%;
-  background: #00000097;
   outline: none;
-  font-size: 25px;
-  color: rgb(255, 255, 255);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
+  border-radius: 5px;
+}
+.chat-window .chat-footer button img{
+  height: 40px;
+}
+.chat-window .chat-footer button:hover{
+  background-color: rgba(100, 196, 237, 0.393);
 }
 .hide {
   opacity: 0 !important;
@@ -275,7 +287,7 @@ nav {
 /*Footer*/
 footer {
   width: 100%;
-  background-color: #263238;
+  background-color: rgb(29, 47, 81);
   text-align: center;
   color: white;
 }
@@ -292,9 +304,21 @@ a{
   text-decoration: none;
 }
 
-
 /*Notification*/
 .custom-toast-container {
   margin-top: 20px;
   margin-right: 20px;
+}
+
+
+@media (max-width: 1000px) {
+  .home img{
+    position: absolute;
+    opacity: 0.2;
+    height: 100vh;
+    z-index: -1;
+  }
+  .joinChatContainer{
+    border: 1px solid rgba(0, 0, 0, 0.58);
+  }
 }
