@@ -1,0 +1,58 @@
+.main{
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.main img{
+  height: 500px;
+}
+
+
+/*Join chat*/
+.joinChatContainer {
+    background-color: white;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    max-width: 300px;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.349);
+  }
+  .joinChatContainer h1 {
+    font-size: 1.5rem;
+  }
+  .joinChatContainer input {
+    transition: 0.2s;
+    height: 40px;
+    margin: 7px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.425);
+    font-size: 1rem;
+    outline: none;
+  }
+  .joinChatContainer input:focus {
+    border-bottom: 2px solid cornflowerblue;
+  }
+  .joinChatContainer button {
+    width: 225px;
+    height: 50px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    background: #ffb700;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .joinChatContainer button:hover {
+    background: rgb(29, 47, 81);
+  }
+  
+  

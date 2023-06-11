@@ -3,6 +3,8 @@ import ScrollToBottom from 'react-scroll-to-bottom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import sendButton from '../assets/send.png'
+import { Menu } from 'react-feather';
+import './Chat.css'
 
 const Chat = ({ setShowChat, socket, userName, room}) => {
     const [currentMessage, setCurrentMessage] = useState('');
@@ -42,6 +44,7 @@ const Chat = ({ setShowChat, socket, userName, room}) => {
     return (
         <div className="chat-window">
             <div className="chat-header">
+                <Menu />
                 <p>Joined room '{room}' as {userName}</p>
                 <button className="logout" onClick={logout} >End Chat</button>
             </div>
