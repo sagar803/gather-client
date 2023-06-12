@@ -1,22 +1,37 @@
 .menuContainer{
-    z-index: 1;
-    width: 100%;
-    position: absolute;
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-    left: 0;
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(to top, #8ba0de7f 0%, #91e094ac 100%);
 }
 
 .joinRoom {
-  margin: 10px;
+  position: sticky;
+  top: 0;
+  padding: 10px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
+.icon{
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.joinButton{
+  background-color: #ffffff63;
+  cursor: pointer;
+  padding: 13px;
+  font-size: 1em;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
+}
 .joinRoom input {
     color: rgb(79, 79, 79);
-    background-color: #ffffff8e;
+    background-color: #ffffff63;
     height: 100%;
     width: calc(90% - (120px));
     border: 0;
@@ -29,6 +44,8 @@
   }
 
   .sample-rooms {
+    height: calc(100% - (130px));
+    overflow: scroll;
     padding: 20px;
   }
   
@@ -47,7 +64,7 @@
   .room-item {
     margin-bottom: 10px;
     font-size: 16px;
-    color: #6f6f6f;
+    color: #3e3e3e;
   }
   
   .room-item:hover {

@@ -1,4 +1,5 @@
 import React  from "react";
+import { Box, useMediaQuery } from "@mui/material";
 import "./Menu.css";
 import { 
     X as CloseIcon,
@@ -6,7 +7,9 @@ import {
 } from "react-feather";
 
 const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
-        
+    
+    const isNonMobileScreens = useMediaQuery("(min-width:850px)");        
+
     const trendingRooms = [
         { id: 'TR001', name: 'Technology Innovations' },
         { id: 'TR002', name: 'Gaming Zone' },
@@ -38,14 +41,14 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
     return (
         <div className='menuContainer'>
             <div className='joinRoom'>                
-                <CloseIcon onClick={toggleMenu}/>
+                {!isNonMobileScreens && <CloseIcon className="icon" onClick={toggleMenu}/>}
                 <input 
                     value={room}
                     onChange={(e) => setRoom(e.target.value)} 
                     type='text' 
                     placeholder="Create or Join Room..." 
                     />
-                <LogIn onClick={joinRoom}/>
+                <Box className="joinButton" onClick={joinRoom}>Join</Box>
             </div>
 
             <hr />

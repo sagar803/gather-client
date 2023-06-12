@@ -2,11 +2,14 @@ import React , { useState } from "react";
 import homeImage from '../assets/home.jpg'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
+
 import { useNavigate } from 'react-router-dom';
 
 import './Auth.css';
 
 const Auth = ({setAuth}) => {
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [pageType, setPageType] = useState("login");
     const [credentials , setCredentials ] = useState({fullName : '', email : '' , password : ''});
@@ -22,6 +25,7 @@ const Auth = ({setAuth}) => {
 
     const handleSubmit = async () => {
         try {
+            setLoading(true);
             const res = await fetch(`${process.env.REACT_APP_API}/auth/${pageType}`, {
                 method: 'POST',
                 headers: {
@@ -39,9 +43,10 @@ const Auth = ({setAuth}) => {
             }
         } catch (error) {
             console.log(error)
+        } finally{
+            setLoading(false)
         }
     }
-
     return (
         <>
             <Header />
@@ -49,12 +54,16 @@ const Auth = ({setAuth}) => {
                 <div className='authContainer'>
                 <h1>Connect and Chat</h1>
                 
-                <input 
-                    value={credentials.fullName}
-                    onChange={(e) => setCredentials({ ...credentials, fullName: e.target.value })}
-                    type='text' 
-                    placeholder="Enter you name.." 
-                />
+                {
+                    (pageType === "register") && (
+                        <input 
+                        value={credentials.fullName}
+                        onChange={(e) => setCredentials({ ...credentials, fullName: e.target.value })}
+                        type='text' 
+                        placeholder="Enter you name.." 
+                    />    
+                    )
+                }
                 <input 
                     value={credentials.email}
                     onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
@@ -70,7 +79,10 @@ const Auth = ({setAuth}) => {
                 <button 
                     onClick={handleSubmit}
                 >
-                    {(pageType === "login") ? "Login" : "Register"}
+                    {loading 
+                        ? <Loader />
+                        : (pageType === "login") ? "Login" : "Register"
+                    }
                 </button>
                 <p
                     onClick={togglePageType}
