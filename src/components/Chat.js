@@ -2,14 +2,24 @@ import React, { useState, useEffect } from "react";
 import ScrollToBottom from 'react-scroll-to-bottom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import sendButton from '../assets/send.png'
-import { Menu } from 'react-feather';
-import './Chat.css'
+import { 
+    Menu as MenuIcon,
+    LogOut ,
+    Send
+} from 'react-feather';
 
-const Chat = ({ setShowChat, socket, userName, room}) => {
+import './Chat.css'
+import { useNavigate } from "react-router-dom";
+
+const Chat = ({ toggleMenu, socket, userName, room}) => {
+    const navigate = useNavigate();
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageHistory, setMessageHistory] = useState([]);
     
+    useEffect(() => {
+        setMessageHistory([]);
+    }, [room]);
+      
     const sendMessage = async () => {
         if (currentMessage !==  ""){
             const messageData = {
@@ -26,7 +36,10 @@ const Chat = ({ setShowChat, socket, userName, room}) => {
 
     const logout = () => {
         socket.emit("leave_room", {userName, room})
-        setShowChat(false)   
+        localStorage.removeItem('userId');
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        navigate('/');
     }
     useEffect(() => {
         socket.on("joined_room", (data)=> {
@@ -44,9 +57,13 @@ const Chat = ({ setShowChat, socket, userName, room}) => {
     return (
         <div className="chat-window">
             <div className="chat-header">
-                <Menu />
-                <p>Joined room '{room}' as {userName}</p>
-                <button className="logout" onClick={logout} >End Chat</button>
+                <MenuIcon className="pointer" onClick={toggleMenu}/>
+                {room ? (
+                    <p>Joined room '{room}' as {userName}</p>
+                ) : (
+                    <p>Enter any room to start conversation</p>
+                )}
+                <LogOut className="pointer" onClick={logout}/>
             </div>
             <div className="chat-body" >
                 <ScrollToBottom className="message-container">
@@ -71,16 +88,20 @@ const Chat = ({ setShowChat, socket, userName, room}) => {
                     })}
                 </ScrollToBottom>
             </div>
-            <div className="chat-footer">
-                <input
-                    value={currentMessage}
-                    onChange={(e) => setCurrentMessage(e.target.value)} 
-                    type="text" 
-                    placeholder="Send a message...." 
-                    onKeyPress={(event)=> (event.key === 'Enter') && sendMessage()}
-                />
-                <button onClick={sendMessage}><img src={sendButton} alt="Send"/></button>
-            </div>
+            {
+                room && (
+                    <div className="chat-footer">
+                        <input
+                            value={currentMessage}
+                            onChange={(e) => setCurrentMessage(e.target.value)} 
+                            type="text" 
+                            placeholder="Send a message...." 
+                            onKeyPress={(event)=> (event.key === 'Enter') && sendMessage()}
+                        />
+                        <button onClick={sendMessage}><Send /></button>
+                    </div>
+                )
+            }
             <ToastContainer className="custom-toast-container"/>
         </div>
     )

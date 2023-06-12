@@ -21,16 +21,3 @@ body {
   margin-top: 20px;
   margin-right: 20px;
 }
-
-
-@media (max-width: 1000px) {
-  .home img{
-    position: absolute;
-    opacity: 0.2;
-    height: 100vh;
-    z-index: -1;
-  }
-  .joinChatContainer{
-    border: 1px solid rgba(0, 0, 0, 0.58);
-  }
-}

@@ -59,3 +59,14 @@
     cursor: pointer;
   }
   
+  @media (max-width: 1000px) {
+    .main img{
+      position: absolute;
+      opacity: 0.2;
+      height: 100vh;
+      z-index: -1;
+    }
+    .authContainer{
+      border: 1px solid rgba(0, 0, 0, 0.58);
+    }
+  }

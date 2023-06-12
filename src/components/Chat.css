@@ -1,31 +1,10 @@
 
-@keyframes gradientAnimation {
-    0% {
-      background-position: left top;
-    }
-    25% {
-      background-position: right bottom;
-    }
-    50% {
-      background-position: left top;
-    }
-    75% {
-      background-position: right bottom;
-    }
-    100% {
-      background-position: left top;
-    }
-  }
-  
   /*Chat Window*/
   .chat-window {
-    max-width: 600px;
+    position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom right, #d5a6ff90, #d5a6ff19, #FFFFFF);
-    background-size: 200% 200%;
-    background-position: left top;
-    animation: gradientAnimation 5s linear infinite;
+    background-color: #add8c65a;
   }
   
   .chat-window p {
@@ -33,29 +12,17 @@
     padding: 0;
   }
   .chat-window .chat-header {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
     color: grey;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 45px;
     background: #ffffff8e;
-    position: relative;
-    cursor: cell;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
+    height: 45px;
     padding: 0 20px;
-    margin: 15px 10px;
     border-radius: 5px;
   }
-  
-  .chat-window .chat-header .logout {
-    color: white;
-    background-color: red;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
+
   
   /*chat body*/
   .disclaimer{
@@ -67,10 +34,9 @@
   .chat-window .chat-body {
   /*  height: calc(600px - (45px + 70px)); */
     margin: 5px;
-    height: calc(100% - (170px));
+    height: calc(100% - (140px));
     position: relative;
     border-radius: 5px;
-  
   }
   .chat-window .chat-body .message-container {
     width: 100%;
@@ -169,7 +135,7 @@
     color: rgb(79, 79, 79);
     background-color: #ffffff8e;
     height: 100%;
-    width: 82%;
+    width: calc(98% - (80px));
     border: 0;
     padding: 0 0.7em;
     font-size: 1em;
@@ -182,14 +148,11 @@
   .chat-window .chat-footer button {
     border: 0;
     cursor: pointer;
-    width: 12%;
+    width: 60px;
     height: 100%;
     outline: none;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
     border-radius: 5px;
-  }
-  .chat-window .chat-footer button img{
-    height: 40px;
   }
   .chat-window .chat-footer button:hover{
     background-color: rgba(100, 196, 237, 0.393);
@@ -198,3 +161,7 @@
     opacity: 0 !important;
   }
   
+
+  .pointer{
+    cursor: pointer;
+  }
