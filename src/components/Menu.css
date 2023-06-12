@@ -1,28 +1,24 @@
 .menuContainer{
     z-index: 1;
-    height: 100%;
     width: 100%;
     position: absolute;
-    background-color: rgb(229, 229, 229);
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     left: 0;
 }
-.closeIcon {
-    padding: 10px 20px;
-}
- 
+
 .joinRoom {
-    margin: 10px;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 5px;
-  }
-  
+  margin: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .joinRoom input {
     color: rgb(79, 79, 79);
     background-color: #ffffff8e;
     height: 100%;
-    width: calc(98% - (80px));
+    width: calc(90% - (120px));
     border: 0;
     padding: 0 0.7em;
     font-size: 1em;
@@ -31,16 +27,31 @@
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
   }
-  
- .joinRoom button {
-    border: 0;
-    cursor: pointer;
-    width: 60px;
-    height: 100%;
-    outline: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
-    border-radius: 5px;
+
+  .sample-rooms {
+    padding: 20px;
   }
-.joinRoom button:hover{
-    background-color: rgba(100, 196, 237, 0.393);
-}  
+  
+  .gradient-heading {
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: transparent;
+    background-clip: text;
+  }
+  
+  .room-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .room-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #6f6f6f;
+  }
+  
+  .room-item:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  

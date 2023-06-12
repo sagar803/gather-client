@@ -63,7 +63,7 @@ const Chat = ({ toggleMenu, socket, userName, room}) => {
                 ) : (
                     <p>Enter any room to start conversation</p>
                 )}
-                <LogOut className="pointer" onClick={logout}/>
+                <LogOut className="pointer logout" onClick={logout}/>
             </div>
             <div className="chat-body" >
                 <ScrollToBottom className="message-container">
