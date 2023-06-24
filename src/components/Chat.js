@@ -89,7 +89,7 @@ const Chat = ({ toggleMenu, socket, userName, room}) => {
                 </ScrollToBottom>
             </div>
             {
-                room && (
+                room ? (
                     <div className="chat-footer">
                         <input
                             value={currentMessage}
@@ -99,6 +99,10 @@ const Chat = ({ toggleMenu, socket, userName, room}) => {
                             onKeyPress={(event)=> (event.key === 'Enter') && sendMessage()}
                         />
                         <button onClick={sendMessage}><Send /></button>
+                    </div>
+                ) : (
+                    <div className="hall-message"> 
+                        <p>You are currently at the Hall, Join any community room to interact.</p>
                     </div>
                 )
             }

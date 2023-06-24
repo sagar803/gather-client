@@ -1,26 +1,35 @@
 .menuContainer{
   position: relative;
-  height: 100vh;
-  background-image: linear-gradient(to top, #8ba0de7f 0%, #91e094ac 100%);
+  height: 100%;
+  width: 100%;
+  background-color: rgb(17, 18, 20); 
+  overflow: scroll;
+  color: rgb(188, 188, 188);   
 }
 
-.joinRoom {
-  position: sticky;
-  top: 0;
-  padding: 10px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 .icon{
   cursor: pointer;
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
 }
+
+/*Menu head section */
+.joinRoom {
+  z-index: 1;
+  backdrop-filter: blur(2px);
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
 .joinButton{
-  background-color: #ffffff63;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+
   cursor: pointer;
   padding: 13px;
   font-size: 1em;
@@ -30,10 +39,10 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
 }
 .joinRoom input {
-    color: rgb(79, 79, 79);
-    background-color: #ffffff63;
+    color: rgb(188, 188, 188);
+    background-color: #ffffff21;
     height: 100%;
-    width: calc(90% - (120px));
+    flex-grow: 1;
     border: 0;
     padding: 0 0.7em;
     font-size: 1em;
@@ -43,9 +52,27 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
   }
 
+  .menu-list{
+    width: 100%;
+    padding: 0px;
+  }
+  .menu-list li{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 8px;
+    padding: 20px 30px;
+    list-style-type: none;
+    gap: 15px;
+    border-radius: 8px;
+  }
+  .menu-list li:hover{
+      color: white;
+      background-color: rgba(240, 248, 255, 0.103);
+  }
+
+ /*Menu Body css*/
   .sample-rooms {
-    height: calc(100% - (130px));
-    overflow: scroll;
     padding: 20px;
   }
   
@@ -64,7 +91,6 @@
   .room-item {
     margin-bottom: 10px;
     font-size: 16px;
-    color: #3e3e3e;
   }
   
   .room-item:hover {

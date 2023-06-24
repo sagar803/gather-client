@@ -1,0 +1,15 @@
+.card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-control {
+    margin-bottom: 16px;
+  }
+  
+  .submit-button {
+    text-align: center;
+  }
+  

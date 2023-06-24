@@ -1,12 +1,9 @@
 .App {
-  width: 100vw;
   height: 100vh;
-  color: #212121;
+  width: 100vw;
+  color: grey;
+  background-color: black;
   font-family: "Open Sans", sans-serif;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: space-between;
 }
 body {
   margin: 0%;
@@ -21,3 +18,16 @@ body {
   margin-top: 20px;
   margin-right: 20px;
 }
+
+/*
+.App {
+  width: 100vw;
+  height: 100vh;
+  color: #212121;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-between;
+}
+*/

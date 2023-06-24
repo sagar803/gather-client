@@ -2,7 +2,7 @@
   /*Chat Window*/
   .chat-window {
     position: relative;
-    height: 100vh;
+    height: 100%;
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   }
   
@@ -160,8 +160,16 @@
   .hide {
     opacity: 0 !important;
   }
-  
-
+  .hall-message{
+    display: flex;
+    justify-content: center;
+  }
+  .hall-message p{
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid red;
+    color: red;  
+  }
   .pointer{
     cursor: pointer;
   }

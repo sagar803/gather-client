@@ -1,5 +1,11 @@
+.auth-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .main{
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

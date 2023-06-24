@@ -25,32 +25,36 @@ const Room = () => {
     }
 
     return (
-        <Box 
-            className="roomContainer" 
-            width="100%"
-            display={isNonMobileScreens ? "flex" : "block"}
-            justifyContent="space-between"
-        >
-            { !isNonMobileScreens ? (
-                <Box 
-                    position="absolute"
-                    zIndex="1"
-                >
-                    {showMenu && <Menu toggleMenu={toggleMenu} setRoom={setRoom} joinRoom={joinRoom} room={room}/>}
-                </Box>
-            ) : (
-                <Box 
-                    flexBasis={isNonMobileScreens ? "30%" : undefined}
-                >
-                    <Menu toggleMenu={toggleMenu} setRoom={setRoom} joinRoom={joinRoom} room={room}/>
-                </Box>
-            ) 
-            }
+        <Box>
             <Box 
-                flexBasis={isNonMobileScreens ? "70%" : undefined}
+                height="100vh"
+                width="100%"
+                display={isNonMobileScreens ? "flex" : "block"}
+                justifyContent="space-between"
             >
-            <Chat toggleMenu={toggleMenu} socket={socket} userName={userName} room={room} />
-          </Box>
+                { !isNonMobileScreens ? (
+                    <Box 
+                        position="absolute"
+                        zIndex="1"
+                        height='100vh'
+                    >
+                        {showMenu && <Menu toggleMenu={toggleMenu} setRoom={setRoom} joinRoom={joinRoom} room={room}/>}
+                    </Box>
+                ) : (
+                    <Box 
+                        flexBasis={isNonMobileScreens ? "25%" : undefined}
+                    >
+                        <Menu toggleMenu={toggleMenu} setRoom={setRoom} joinRoom={joinRoom} room={room}/>
+                    </Box>
+                ) 
+            }
+                <Box 
+                    height='100vh'
+                    flexBasis={isNonMobileScreens ? "75%" : undefined}
+                >
+                <Chat toggleMenu={toggleMenu} socket={socket} userName={userName} room={room} />
+                </Box>
+            </Box>
         </Box>
     )
 }

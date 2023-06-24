@@ -2,8 +2,7 @@ import React , { useState } from "react";
 import homeImage from '../assets/home.jpg'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Loader from '../components/Loader';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
 
 import './Auth.css';
@@ -39,7 +38,7 @@ const Auth = ({setAuth}) => {
                 localStorage.setItem("userId" , data.user._id);
                 localStorage.setItem("user" , data.user.fullName);
                 setAuth(true);
-                navigate('/room');
+                navigate('/profile');
             }
         } catch (error) {
             console.log(error)
@@ -48,7 +47,7 @@ const Auth = ({setAuth}) => {
         }
     }
     return (
-        <>
+        <div className="auth-body">
             <Header />
             <div className='main'>
                 <div className='authContainer'>
@@ -80,7 +79,7 @@ const Auth = ({setAuth}) => {
                     onClick={handleSubmit}
                 >
                     {loading 
-                        ? <Loader />
+                        ? <CircularProgress size={20} sx={{color:"white"}} />
                         : (pageType === "login") ? "Login" : "Register"
                     }
                 </button>
@@ -92,7 +91,7 @@ const Auth = ({setAuth}) => {
             </div>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

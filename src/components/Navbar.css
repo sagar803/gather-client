@@ -1,0 +1,36 @@
+.navbar{
+    height: 70px;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar-logo{
+    font-size: 2rem;
+    color: white;
+}
+.navbar-logo:hover{
+    cursor: none;
+}
+.nav-list{
+    display: flex;
+}
+.nav-list li{
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+    width: fit-content;
+    list-style-type: none;
+    gap: 5px;
+    border-radius: 8px;
+}
+.nav-list li:hover{
+    background-color: rgba(240, 248, 255, 0.228);
+}
+
+@media (max-width: 750px) {
+    /* CSS rules for small screens */
+
+}

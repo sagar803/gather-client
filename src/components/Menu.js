@@ -1,13 +1,12 @@
 import React  from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box,Button,  useMediaQuery } from "@mui/material";
+import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {Create, Close, Person, Chat, Settings, Logout } from '@mui/icons-material';
 import "./Menu.css";
-import { 
-    X as CloseIcon,
-    LogIn
-} from "react-feather";
+import { useNavigate } from "react-router-dom";
 
 const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
-    
+    const navigate = useNavigate();
     const isNonMobileScreens = useMediaQuery("(min-width:850px)");        
 
     const trendingRooms = [
@@ -39,9 +38,9 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
       ];
 
     return (
-        <div className='menuContainer'>
+        <Box className='menuContainer'>
             <div className='joinRoom'>                
-                {!isNonMobileScreens && <CloseIcon className="icon" onClick={toggleMenu}/>}
+                {!isNonMobileScreens && <Close className="icon" onClick={toggleMenu}/>}
                 <input 
                     value={room}
                     onChange={(e) => setRoom(e.target.value)} 
@@ -51,8 +50,26 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                 <Box className="joinButton" onClick={joinRoom}>Join</Box>
             </div>
 
+            <ul className="menu-list">
+                <li onClick={() => navigate('/profile')} >
+                    <Person />Profile    
+                </li>
+
+                <li onClick={() => navigate('/room')}>
+                    <Chat />Chat
+                </li>
+
+                <li onClick={() => navigate('/create')}>
+                    <Create />Create
+                </li>
+
+                <li >
+                    <Settings />Settings
+                </li>
+            </ul>
             <hr />
-            <div className="sample-rooms">
+
+            <Box className="sample-rooms">
 
                 <h2 className="gradient-heading">Trending Rooms</h2>
                 <ul className="room-list">
@@ -98,10 +115,8 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                     </li>
                     ))}
                 </ul>
-
-
-            </div>
-        </div>
+            </Box>
+        </Box>
     )
 }
 
