@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { TextField, Button, Grid, FormControlLabel, Switch, Box, Card } from '@mui/material';
 import Navbar from "./Navbar"
 
-const CreateRoom = () => {
+const CreateRoom = ({isAuth, setIsAuth}) => {
   const userId = localStorage.getItem('userId');
-  const [formData, setFormData] = useState({name:"", isPrivate: false, password: "", customId: "", category:"" , createdBy: userId});
+  const [formData, setFormData] = useState({name:"", description:"", isPrivate: false, password: "", customId: "", category:"" , createdBy: userId});
 
   const handleSubmit = async (e) => {
     try {
@@ -22,11 +22,12 @@ const CreateRoom = () => {
             console.log(data);
             setFormData({
               name: "",
+              description:"",
               isPrivate: false,
               password: "",
               customId: "",
               category: "",
-              createdBy: userId
+              createdBy: userId,
             });
         }
     } catch (error) {
@@ -40,7 +41,7 @@ const CreateRoom = () => {
 
   return (
     <div className='create-room-body'>
-      <Navbar/>
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <Box
         margin="5%"
         display="flex"
@@ -57,6 +58,15 @@ const CreateRoom = () => {
                   fullWidth
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label="Description"
+                  fullWidth
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   required
                 />
               </Grid>

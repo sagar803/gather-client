@@ -4,97 +4,49 @@
   width: 100%;
   background-color: rgb(17, 18, 20); 
   overflow: scroll;
-  color: rgb(188, 188, 188);   
+  color: rgb(207, 207, 207);   
 }
-
-.icon{
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-/*Menu head section */
-.joinRoom {
-  z-index: 1;
-  backdrop-filter: blur(2px);
-  position: sticky;
-  top: 0;
+.menu-list{
+  margin: 5px;
   padding: 10px;
-  height: 50px;
+}
+.menu-list li{
   display: flex;
-  gap: 10px;
   align-items: center;
-  justify-content: space-around;
+  padding: 15px 15px;
+  list-style-type: none;
+  gap: 15px;
+  border-radius: 8px;
 }
-.joinButton{
-  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+.menu-list li:hover{
+  color: white;
+  background-color: rgba(240, 248, 255, 0.103);
+}
 
+/*Menu Body css*/
+.sample-rooms {
+  padding: 20px;
+}
+.room-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.room-item {
+  transition: 0.3s;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.room-item:hover {
+  padding-left: 10px;
+  color: white;
   cursor: pointer;
-  padding: 13px;
-  font-size: 1em;
-  outline: none;
-  font-family: "Open Sans", sans-serif;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
 }
-.joinRoom input {
-    color: rgb(188, 188, 188);
-    background-color: #ffffff21;
-    height: 100%;
-    flex-grow: 1;
-    border: 0;
-    padding: 0 0.7em;
-    font-size: 1em;
-    outline: none;
-    font-family: "Open Sans", sans-serif;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
-  }
 
-  .menu-list{
-    width: 100%;
-    padding: 0px;
-  }
-  .menu-list li{
-    display: flex;
-    align-items: center;
-    width: 80%;
-    margin: 8px;
-    padding: 20px 30px;
-    list-style-type: none;
-    gap: 15px;
-    border-radius: 8px;
-  }
-  .menu-list li:hover{
-      color: white;
-      background-color: rgba(240, 248, 255, 0.103);
-  }
-
- /*Menu Body css*/
-  .sample-rooms {
-    padding: 20px;
-  }
-  
-  .gradient-heading {
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    color: transparent;
-    background-clip: text;
-  }
-  
-  .room-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .room-item {
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  
-  .room-item:hover {
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
+.gradient-heading {
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: transparent;
+  background-clip: text;
+}

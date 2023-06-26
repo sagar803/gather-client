@@ -8,7 +8,7 @@ import Profile from './scenes/Profile';
 
 
 function App() {
-  const [auth, setAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
   
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -16,28 +16,30 @@ function App() {
     const userId = localStorage.getItem('userId');
 
     if (token && user && userId) {
-      setAuth(true);
+      setIsAuth(true);
     } else {
-      setAuth(false);
+      setIsAuth(false);
     }
-  }, [auth]);
+  }, [isAuth]);
 
   return (
     <div className="App">
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Auth setAuth={setAuth}/>} />
+            <Route 
+              path="/" 
+              element={isAuth ? <Navigate to="/Profile" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} />
             <Route
               path="/room"
-              element={auth ? <Room /> : <Navigate to="/" />}
+              element={isAuth ? <Room setIsAuth={setIsAuth}/> : <Navigate to="/" />}
             />
             <Route 
               path="/create" 
-              element={auth ? <CreateRoom /> : <Navigate to="/" />}
+              element={isAuth ? <CreateRoom isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
             />
             <Route
               path="/profile"
-              element={auth ? <Profile /> : <Navigate to="/" />}
+              element={isAuth ? <Profile isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
             />
           </Routes>
         </ BrowserRouter>

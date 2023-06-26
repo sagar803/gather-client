@@ -1,0 +1,45 @@
+.user {
+    position: relative;
+    display: flex;
+    margin: 10px 5px;
+    padding: 10px;
+    border: 1px solid #cccccc22;
+    border-radius: 8px;
+    align-items: center;
+    transition: 0.3s;
+}
+.meta-data{
+    width: 75%;
+}
+.lock-icon{
+    color: rgba(255, 0, 13, 0.756);    
+    scale: 0.7;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.user:hover {
+    cursor: pointer;
+    border: 1px solid #ffffffbb;
+}
+.user-name {
+    margin: 2px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.user-email {
+    margin: 2px;
+    font-size: 12px;
+    color: #777;
+}
+
+.clearButton{
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    cursor: pointer;
+    padding: 13px;
+    font-size: 1em;
+    outline: none;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px;
+  }

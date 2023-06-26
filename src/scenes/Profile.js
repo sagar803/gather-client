@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Menu from '../components/Menu';
 import ProfileWidget from '../components/ProfileWidget';
 
-const Profile = () => {
+const Profile = ({isAuth ,setIsAuth}) => {
   const isNonMobileScreens = useMediaQuery("(min-width:850px)");
   const userName = localStorage.getItem('user');
   return (
@@ -18,7 +18,7 @@ const Profile = () => {
           sx={{backdropFilter: isNonMobileScreens ? 'blur(2px)' : "undefined"}}
           
       >
-          <Navbar />
+          <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
           <ProfileWidget userName={userName} />
       </Box>
 

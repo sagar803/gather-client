@@ -1,13 +1,11 @@
 import React  from "react";
-import { Box,Button,  useMediaQuery } from "@mui/material";
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import {Create, Close, Person, Chat, Settings, Logout } from '@mui/icons-material';
+import {Create, Person, Chat, Settings } from '@mui/icons-material';
 import "./Menu.css";
 import { useNavigate } from "react-router-dom";
+import Search from "./Search";
 
-const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
+const Menu = ({toggleMenu, joinRoom, setJoinedRoom, joinedRoom}) => {
     const navigate = useNavigate();
-    const isNonMobileScreens = useMediaQuery("(min-width:850px)");        
 
     const trendingRooms = [
         { id: 'TR001', name: 'Technology Innovations' },
@@ -38,18 +36,8 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
       ];
 
     return (
-        <Box className='menuContainer'>
-            <div className='joinRoom'>                
-                {!isNonMobileScreens && <Close className="icon" onClick={toggleMenu}/>}
-                <input 
-                    value={room}
-                    onChange={(e) => setRoom(e.target.value)} 
-                    type='text' 
-                    placeholder="Create or Join Room..." 
-                    />
-                <Box className="joinButton" onClick={joinRoom}>Join</Box>
-            </div>
-
+        <div className='menuContainer'>
+            <Search joinRoom={joinRoom} toggleMenu = {toggleMenu} setJoinedRoom={setJoinedRoom} joinedRoom={joinedRoom}/>
             <ul className="menu-list">
                 <li onClick={() => navigate('/profile')} >
                     <Person />Profile    
@@ -69,13 +57,13 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
             </ul>
             <hr />
 
-            <Box className="sample-rooms">
+            <div className="sample-rooms">
 
                 <h2 className="gradient-heading">Trending Rooms</h2>
                 <ul className="room-list">
                     {trendingRooms.map((room) => (
                     <li onClick={() => {
-                        setRoom(room.id);
+                        setJoinedRoom(room);
                         joinRoom();
                       }}
                       key={room.id} 
@@ -90,7 +78,7 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                 <ul className="room-list">
                     {communityRooms.map((room) => (
                     <li onClick={() => {
-                        setRoom(room.id);
+                        setJoinedRoom(room);
                         joinRoom();
                       }}
                       key={room.id} 
@@ -105,7 +93,7 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                 <ul className="room-list">
                     {techRooms.map((room) => (
                     <li onClick={() => {
-                        setRoom(room.id);
+                        setJoinedRoom(room);
                         joinRoom();
                       }}
                       key={room.id} 
@@ -115,8 +103,8 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                     </li>
                     ))}
                 </ul>
-            </Box>
-        </Box>
+            </div>
+        </div>
     )
 }
 
