@@ -1,72 +1,72 @@
-.main{
-    width: 80%;
+.auth-body{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.831);
+}
+.auth-main{
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
-.main img{
-    height: 500px;
-}
-  
+    
   /*Join chat*/
 .authContainer {
-    background-color: white;
-    height: 300px;
+    margin: 15px;
+    border: 1px solid cornflowerblue;
     display: flex;
+    align-items: center;
     flex-direction: column;
     text-align: center;
     justify-content: space-around;
-    max-width: 300px;
-    border-radius: 5px;
-    padding: 30px;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.349);
+    width: 300px;
+    border-radius: 10px;
+    padding: 25px;
   }
   .authContainer h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .authContainer input {
+    color: rgba(255, 255, 255, 0.831);
+    width: 220px;
+    background-color: #ffffff21;
+    font-size: 15px;
+    border: 0;
+    padding: 0 1rem;
+    outline: none;
+    border-radius: 8px;
     transition: 0.2s;
-    height: 40px;
+    height: 50px;
     margin: 7px;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.425);
-    font-size: 1rem;
-    outline: none;
   }
   .authContainer input:focus {
     border-bottom: 2px solid cornflowerblue;
   }
   .authContainer button {
-    width: 225px;
+    width: 240px;
     height: 50px;
     margin: 20px auto;
     border: none;
     border-radius: 5px;
     padding: 5px;
     font-size: 16px;
-    background: #ffb700;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
     color: #fff;
     cursor: pointer;
     outline: none;
   }
-  
+
   .authContainer button:hover {
-    background: rgb(29, 47, 81);
+    background: inherit;
+  }
+  .authContainer p:hover{
+    cursor: pointer;
   }
   
   a{
     font-size: 13px;
     cursor: pointer;
-  }
-  
-  @media (max-width: 1000px) {
-    .main img{
-      position: absolute;
-      opacity: 0.2;
-      height: 100vh;
-      z-index: -1;
-    }
-    .authContainer{
-      border: 1px solid rgba(0, 0, 0, 0.58);
-    }
   }

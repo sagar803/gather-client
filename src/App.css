@@ -1,3 +1,28 @@
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+}
+.App {
+  height: 100vh;
+  width: 100%;
+  color: whitesmoke;
+  background-color: rgb(17, 18, 20);
+  font-family: "Open Sans", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
+
+
+/*Notification*/
+.custom-toast-container {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/*
 .App {
   width: 100vw;
   height: 100vh;
@@ -8,16 +33,4 @@
   align-items: center;
   justify-content: space-between;
 }
-body {
-  margin: 0%;
-  padding: 0%;
-}
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-
-
-
-/*Notification*/
-.custom-toast-container {
-  margin-top: 20px;
-  margin-right: 20px;
-}
+*/

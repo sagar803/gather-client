@@ -1,14 +1,11 @@
 import React  from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import {Create, Person, Chat, Settings } from '@mui/icons-material';
 import "./Menu.css";
-import { 
-    X as CloseIcon,
-    LogIn
-} from "react-feather";
+import { useNavigate } from "react-router-dom";
+import Search from "./Search";
 
-const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
-    
-    const isNonMobileScreens = useMediaQuery("(min-width:850px)");        
+const Menu = ({toggleMenu, joinRoom, setJoinedRoom, joinedRoom}) => {
+    const navigate = useNavigate();
 
     const trendingRooms = [
         { id: 'TR001', name: 'Technology Innovations' },
@@ -40,25 +37,33 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
 
     return (
         <div className='menuContainer'>
-            <div className='joinRoom'>                
-                {!isNonMobileScreens && <CloseIcon className="icon" onClick={toggleMenu}/>}
-                <input 
-                    value={room}
-                    onChange={(e) => setRoom(e.target.value)} 
-                    type='text' 
-                    placeholder="Create or Join Room..." 
-                    />
-                <Box className="joinButton" onClick={joinRoom}>Join</Box>
-            </div>
+            <Search joinRoom={joinRoom} toggleMenu = {toggleMenu} setJoinedRoom={setJoinedRoom} joinedRoom={joinedRoom}/>
+            <ul className="menu-list">
+                <li onClick={() => navigate('/profile')} >
+                    <Person />Profile    
+                </li>
 
+                <li onClick={() => navigate('/room')}>
+                    <Chat />Chat
+                </li>
+
+                <li onClick={() => navigate('/create')}>
+                    <Create />Create
+                </li>
+
+                <li >
+                    <Settings />Settings
+                </li>
+            </ul>
             <hr />
+
             <div className="sample-rooms">
 
                 <h2 className="gradient-heading">Trending Rooms</h2>
                 <ul className="room-list">
                     {trendingRooms.map((room) => (
                     <li onClick={() => {
-                        setRoom(room.id);
+                        setJoinedRoom(room);
                         joinRoom();
                       }}
                       key={room.id} 
@@ -73,7 +78,7 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                 <ul className="room-list">
                     {communityRooms.map((room) => (
                     <li onClick={() => {
-                        setRoom(room.id);
+                        setJoinedRoom(room);
                         joinRoom();
                       }}
                       key={room.id} 
@@ -88,7 +93,7 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                 <ul className="room-list">
                     {techRooms.map((room) => (
                     <li onClick={() => {
-                        setRoom(room.id);
+                        setJoinedRoom(room);
                         joinRoom();
                       }}
                       key={room.id} 
@@ -98,8 +103,6 @@ const Menu = ({toggleMenu, joinRoom, setRoom, room}) => {
                     </li>
                     ))}
                 </ul>
-
-
             </div>
         </div>
     )

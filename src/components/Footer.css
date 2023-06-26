@@ -2,7 +2,7 @@
 /*Footer*/
 footer {
     width: 100%;
-    background-color: rgb(29, 47, 81);
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
     text-align: center;
     color: white;
   }

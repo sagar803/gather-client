@@ -1,14 +1,11 @@
 import React , { useState } from "react";
-import homeImage from '../assets/home.jpg'
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Loader from '../components/Loader';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
-
 import './Auth.css';
 
-const Auth = ({setAuth}) => {
+const Auth = ({isAuth, setIsAuth}) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [pageType, setPageType] = useState("login");
@@ -38,8 +35,9 @@ const Auth = ({setAuth}) => {
                 localStorage.setItem("token" , data.token);
                 localStorage.setItem("userId" , data.user._id);
                 localStorage.setItem("user" , data.user.fullName);
-                setAuth(true);
-                navigate('/room');
+                localStorage.setItem("rooms" , JSON.stringify(data.rooms));
+                setIsAuth(true);
+                navigate('/profile');
             }
         } catch (error) {
             console.log(error)
@@ -48,51 +46,50 @@ const Auth = ({setAuth}) => {
         }
     }
     return (
-        <>
-            <Header />
-            <div className='main'>
+        <div className="auth-body">
+            <Navbar isAuth={isAuth}/>
+            <div className='auth-main'>
                 <div className='authContainer'>
-                <h1>Connect and Chat</h1>
+                    <h1>Connect and Chat</h1>
                 
-                {
-                    (pageType === "register") && (
-                        <input 
-                        value={credentials.fullName}
-                        onChange={(e) => setCredentials({ ...credentials, fullName: e.target.value })}
-                        type='text' 
-                        placeholder="Enter you name.." 
-                    />    
-                    )
-                }
-                <input 
-                    value={credentials.email}
-                    onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-                    type='text' 
-                    placeholder="Email" 
-                />
-                <input 
-                    value={credentials.password}
-                    onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} 
-                    type='password' 
-                    placeholder="Password" 
-                    />
-                <button 
-                    onClick={handleSubmit}
-                >
-                    {loading 
-                        ? <Loader />
-                        : (pageType === "login") ? "Login" : "Register"
+                    {
+                        (pageType === "register") && (
+                            <input 
+                            value={credentials.fullName}
+                            onChange={(e) => setCredentials({ ...credentials, fullName: e.target.value })}
+                            type='text' 
+                            placeholder="Enter you name.." 
+                        />    
+                        )
                     }
-                </button>
-                <p
-                    onClick={togglePageType}
-                >{(pageType === "login") ? "Register here..." : "Login here...."}</p>
+                    <input 
+                        value={credentials.email}
+                        onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
+                        type='text' 
+                        placeholder="Email" 
+                    />
+                    <input 
+                        value={credentials.password}
+                        onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} 
+                        type='password' 
+                        placeholder="Password" 
+                        />
+                    <button 
+                        onClick={handleSubmit}
+                    >
+                        {loading 
+                            ? <CircularProgress size={20} sx={{color:"white"}} />
+                            : (pageType === "login") ? "Login" : "Register"
+                        }
+                    </button>
+                    <p
+                        onClick={togglePageType}
+                    >{(pageType === "login") ? "Register here..." : "Login here...."}</p>
                 </div>
-                <img src={homeImage} alt="chat vector" />
             </div>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

@@ -1,29 +1,36 @@
+.room-container{
+  height: 100%;
+  background-color: rgb(17, 18, 20);
+}
 
-  /*Chat Window*/
-  .chat-window {
-    position: relative;
-    height: 100vh;
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-  }
+/*Chat Window*/
+.chat-window {
+  height: 100%;
+}
   
-  .chat-window p {
-    margin: 0;
-    padding: 0;
-  }
-  .chat-window .chat-header {
-    color: grey;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #ffffff8e;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
-    height: 60px;
-    padding: 0 20px;
-    border-radius: 5px;
-  }
-  
+.chat-window p {
+  margin: 0;
+  padding: 0;
+}
+.chat-window .chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff0e;
+  height: 60px;
+  padding: 0 20px;
+}
+.chat-window .chat-header p{
+  font-weight: bold;
+}
+.chat-meta-data{
+  display: flex;
+  align-items: center;
+}
+hr{
+  color: #ffffff0e;
+} 
 
-  
   /*chat body*/
   .disclaimer{
     font-size: 0.7rem;
@@ -132,8 +139,8 @@
   }
   
   .chat-window .chat-footer input {
-    color: rgb(79, 79, 79);
-    background-color: #ffffff8e;
+    color: white;
+    background-color: #ffffff21;
     height: 100%;
     width: calc(98% - (80px));
     border: 0;
@@ -142,7 +149,6 @@
     outline: none;
     font-family: "Open Sans", sans-serif;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
   }
   
   .chat-window .chat-footer button {
@@ -151,17 +157,14 @@
     width: 60px;
     height: 100%;
     outline: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
     border-radius: 5px;
   }
   .chat-window .chat-footer button:hover{
-    background-color: rgba(100, 196, 237, 0.393);
+    background-color: rgba(100, 196, 237, 0.984);
   }
   .hide {
     opacity: 0 !important;
   }
-  
-
   .pointer{
     cursor: pointer;
   }
@@ -170,4 +173,34 @@
     padding: 5px;
     border-radius: 5px;
     color: rgb(255, 0, 0);
+  }
+  
+
+
+  /*When not joined any room */
+  .hall{
+    height: 100%;
+  }
+  .hall-head{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hall .menuIcon{
+    cursor: pointer;
+  }
+  .hall-main{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hall .hall-main p{
+    text-align: center;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgb(255, 66, 66);
+    color: rgb(255, 104, 104);  
   }

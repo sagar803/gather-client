@@ -1,56 +1,60 @@
 import { Box, useMediaQuery } from "@mui/material";
-import React , { useState , useRef} from "react";
+import React , { useState } from "react";
 import io from 'socket.io-client'
 import Chat from '../components/Chat';
 import Menu from '../components/Menu';
 
 const socket = io.connect(`${process.env.REACT_APP_API}`);
 
-const Room = () => {
+const Room = ({setIsAuth}) => {
     const isNonMobileScreens = useMediaQuery("(min-width:850px)");
-    
-    console.log(isNonMobileScreens)
     const userName = localStorage.getItem('user');
     const [showMenu, setShowMenu] = useState(true);
-    const [room, setRoom] = useState('');
+    const [joinedRoom, setJoinedRoom] = useState({name: "", id: ""});
 
     const toggleMenu = () => {
+        console.log("toggeled")
         setShowMenu(!showMenu);
     }
     const joinRoom = () => {
-        if (userName!== "" && room !== ""){
-            socket.emit("join_room", {userName, room})
+        if (userName!== "" && joinedRoom.id !== ""){
+            socket.emit("join_room", {userName, joinedRoom : joinedRoom.id})
             setShowMenu(false);
         }
     }
 
     return (
         <Box 
-            className="roomContainer" 
+            height="100%"
             width="100%"
             display={isNonMobileScreens ? "flex" : "block"}
             justifyContent="space-between"
         >
             { !isNonMobileScreens ? (
-                <Box 
-                    position="absolute"
-                    zIndex="1"
-                >
-                    {showMenu && <Menu toggleMenu={toggleMenu} setRoom={setRoom} joinRoom={joinRoom} room={room}/>}
-                </Box>
+                    showMenu && (
+                        <Box 
+                            position="absolute"
+                            zIndex="1"
+                            height="100%"
+                            width='100%'
+                        >
+                            <Menu toggleMenu={toggleMenu} setJoinedRoom={setJoinedRoom} joinRoom={joinRoom} joinedRoom={joinedRoom}/>
+                        </Box>
+                    )
             ) : (
                 <Box 
-                    flexBasis={isNonMobileScreens ? "30%" : undefined}
+                    flexBasis={isNonMobileScreens ? "25%" : undefined}
                 >
-                    <Menu toggleMenu={toggleMenu} setRoom={setRoom} joinRoom={joinRoom} room={room}/>
+                    <Menu toggleMenu={toggleMenu} setJoinedRoom={setJoinedRoom} joinRoom={joinRoom} joinedRoom={joinedRoom}/>
                 </Box>
             ) 
-            }
+        }
             <Box 
-                flexBasis={isNonMobileScreens ? "70%" : undefined}
+                height="100%"
+                flexBasis={isNonMobileScreens ? "75%" : undefined}
             >
-            <Chat toggleMenu={toggleMenu} socket={socket} userName={userName} room={room} />
-          </Box>
+                <Chat setIsAuth={setIsAuth} toggleMenu={toggleMenu} socket={socket} userName={userName} joinedRoom={joinedRoom} />
+            </Box>
         </Box>
     )
 }
