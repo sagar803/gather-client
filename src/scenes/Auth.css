@@ -45,6 +45,7 @@
   .authContainer input:focus {
     border-bottom: 2px solid cornflowerblue;
   }
+  
   .authContainer button {
     width: 240px;
     height: 50px;
