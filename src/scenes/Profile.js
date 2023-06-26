@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, useMediaQuery } from "@mui/material";
 import Navbar from "../components/Navbar";
-import Menu from '../components/Menu';
 import ProfileWidget from '../components/ProfileWidget';
 
 const Profile = ({isAuth ,setIsAuth}) => {

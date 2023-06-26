@@ -13,7 +13,7 @@ import './Chat.css'
 import { useNavigate } from "react-router-dom";
 
 const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
-    const navigate = useNavigate();
+    
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageHistory, setMessageHistory] = useState([]);
     const isNonMobileScreens = useMediaQuery("(min-width:850px)");        
