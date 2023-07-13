@@ -3,12 +3,9 @@ import './SearchResult.css'
 import LockIcon from '@mui/icons-material/Lock';
 import { Avatar} from '@mui/material';
 
-const SearchResult = ({room, setJoinedRoom}) => {
+const SearchResult = ({room}) => {
     return (
-        <div 
-            onClick={() => setJoinedRoom({name : room.name, id: room._id})}
-            className="user"
-        >
+        <div className="user">
             <Avatar style={{ width: '50px', height: '50px', marginRight:"5px" }} />
             <div className="meta-data">
                 {room.isPublic  && <LockIcon className="lock-icon"/>}

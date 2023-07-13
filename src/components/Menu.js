@@ -4,40 +4,40 @@ import "./Menu.css";
 import { useNavigate } from "react-router-dom";
 import Search from "./Search";
 
-const Menu = ({toggleMenu, joinRoom, setJoinedRoom, joinedRoom}) => {
+const Menu = ({toggleMenu, setJoinedRoom, joinedRoom}) => {
     const navigate = useNavigate();
 
     const trendingRooms = [
-        { id: 'TR001', name: 'Technology Innovations' },
-        { id: 'TR002', name: 'Gaming Zone' },
-        { id: 'TR003', name: 'Health and Wellness' },
-        { id: 'TR004', name: 'Entrepreneurship' },
-        { id: 'TR005', name: 'Photography Enthusiasts' },
-        { id: 'TR006', name: 'Book Club' },
-        { id: 'TR007', name: 'Travel Adventures' },
-        { id: 'TR008', name: 'Music Jam' },
-        { id: 'TR009', name: 'Fashion and Style' },
-        { id: 'TR010', name: 'Art Showcase' },
+        { name: 'Art Showcase', id: 'TR010' },
+        { name: 'Fashion and Style', id: 'TR009' },
+        { name: 'Music Jam', id: 'TR008' },
+        { name: 'Travel Adventures', id: 'TR007' },
+        { name: 'Book Club', id: 'TR006' },
+        { name: 'Photography Enthusiasts', id: 'TR005' },
+        { name: 'Entrepreneurship', id: 'TR004' },
+        { name: 'Health and Wellness', id: 'TR003' },
+        { name: 'Gaming Zone', id: 'TR002' },
+        { name: 'Technology Innovations', id: 'TR001' }
       ];
       
     const communityRooms = [
-        { id: 'CR123', name: 'General Chat' },
-        { id: 'CR456', name: 'Art and Design' },
-        { id: 'CR789', name: 'Music Lovers' },
-        { id: 'CRABC', name: 'Sports Enthusiasts' },
+        { name: 'Sports Enthusiasts', id: 'CRABC' },
+        { name: 'Music Lovers', id: 'CR789' },
+        { name: 'Art and Design', id: 'CR456' },
+        { name: 'General Chat', id: 'CR123' }
       ];
     
       const techRooms = [
-        { id: 'TR123', name: 'Web Development' },
-        { id: 'TR456', name: 'Mobile App Development' },
-        { id: 'TR789', name: 'Data Science' },
-        { id: 'TRABC', name: 'Machine Learning' },
-        { id: 'TRXYZ', name: 'UI/UX Design' },
+        { name: 'UI/UX Design', id: 'TRXYZ' },
+        { name: 'Machine Learning', id: 'TRABC' },
+        { name: 'Data Science', id: 'TR789' },
+        { name: 'Mobile App Development', id: 'TR456' },
+        { name: 'Web Development', id: 'TR123' }
       ];
 
     return (
         <div className='menuContainer'>
-            <Search joinRoom={joinRoom} toggleMenu = {toggleMenu} setJoinedRoom={setJoinedRoom} joinedRoom={joinedRoom}/>
+            <Search toggleMenu = {toggleMenu} setJoinedRoom={setJoinedRoom} joinedRoom={joinedRoom}/>
             <ul className="menu-list">
                 <li onClick={() => navigate('/profile')} >
                     <Person />Profile    
@@ -64,7 +64,6 @@ const Menu = ({toggleMenu, joinRoom, setJoinedRoom, joinedRoom}) => {
                     {trendingRooms.map((room) => (
                     <li onClick={() => {
                         setJoinedRoom(room);
-                        joinRoom();
                       }}
                       key={room.id} 
                       className="room-item"
@@ -79,7 +78,6 @@ const Menu = ({toggleMenu, joinRoom, setJoinedRoom, joinedRoom}) => {
                     {communityRooms.map((room) => (
                     <li onClick={() => {
                         setJoinedRoom(room);
-                        joinRoom();
                       }}
                       key={room.id} 
                       className="room-item"
@@ -94,7 +92,6 @@ const Menu = ({toggleMenu, joinRoom, setJoinedRoom, joinedRoom}) => {
                     {techRooms.map((room) => (
                     <li onClick={() => {
                         setJoinedRoom(room);
-                        joinRoom();
                       }}
                       key={room.id} 
                       className="room-item"
