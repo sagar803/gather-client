@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mui/material";
 import {Close} from '@mui/icons-material';
 import SearchResult from "./SearchResult";
 
-const Search = ({joinRoom, toggleMenu, setJoinedRoom, joinedRoom}) => {
+const Search = ({ toggleMenu, setJoinedRoom}) => {
     const isNonMobileScreens = useMediaQuery("(min-width:850px)");
     const stringifyRoom = localStorage.getItem('rooms');
     const rooms = JSON.parse(stringifyRoom);
@@ -27,11 +27,16 @@ const Search = ({joinRoom, toggleMenu, setJoinedRoom, joinedRoom}) => {
                 <div className="searchResult">
                     {filteredRooms.length !== 0 ? (
                         filteredRooms.map((room) => (
-                            <SearchResult
-                                key={room.id}
-                                setJoinedRoom={setJoinedRoom}
-                                room={room}
-                            />
+                            <div
+                                key={room._id}
+                                onClick={() => {
+                                    setJoinedRoom({name: room.name, id: room._id});
+                                }}
+                            >
+                                <SearchResult
+                                    room={room}
+                                />
+                            </div>
                         ))
                     ) : (
                     <p>No room found...</p>

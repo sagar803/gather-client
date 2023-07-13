@@ -25,7 +25,7 @@ const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
     const sendMessage = async () => {
         if (currentMessage !==  ""){
             const messageData = {
-                joinedRoom : joinedRoom.id,
+                room : joinedRoom.id,
                 author : userName,
                 message : currentMessage,
                 time : new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes() 
