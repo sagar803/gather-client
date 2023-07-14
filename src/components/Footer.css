@@ -1,14 +1,14 @@
 
 /*Footer*/
 footer {
+    height: 150px;
     width: 100%;
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
-  }
-  
-  .contact-info {
-    margin-bottom: 20px;
   }
   .contact-info p {
     margin: 5px 0;

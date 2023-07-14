@@ -1,5 +1,4 @@
 import React , { useState } from "react";
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
@@ -47,7 +46,7 @@ const Auth = ({isAuth, setIsAuth}) => {
     }
     return (
         <div className="auth-body">
-            <Navbar isAuth={isAuth}/>
+            <div className="auth-nav">Gather</div>
             <div className='auth-main'>
                 <div className='authContainer'>
                     <h1>Connect and Chat</h1>

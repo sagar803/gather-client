@@ -1,0 +1,10 @@
+.settings-container{
+    height: 100%;
+}
+.settings-head{
+    height: 10%;
+}
+.settings-body{
+    height: 90%;
+    overflow-y: scroll;
+}

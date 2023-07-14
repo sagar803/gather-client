@@ -5,6 +5,17 @@
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.831);
 }
+.auth-nav{
+  height: 60px;
+  width: 100%;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: auto;
+}
 .auth-main{
     width: 100%;
     display: flex;

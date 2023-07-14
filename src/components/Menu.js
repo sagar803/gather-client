@@ -37,69 +37,73 @@ const Menu = ({toggleMenu, setJoinedRoom, joinedRoom}) => {
 
     return (
         <div className='menuContainer'>
-            <Search toggleMenu = {toggleMenu} setJoinedRoom={setJoinedRoom} joinedRoom={joinedRoom}/>
-            <ul className="menu-list">
-                <li onClick={() => navigate('/profile')} >
-                    <Person />Profile    
-                </li>
-
-                <li onClick={() => navigate('/room')}>
-                    <Chat />Chat
-                </li>
-
-                <li onClick={() => navigate('/create')}>
-                    <Create />Create
-                </li>
-
-                <li >
-                    <Settings />Settings
-                </li>
-            </ul>
-            <hr />
-
-            <div className="sample-rooms">
-
-                <h2 className="gradient-heading">Trending Rooms</h2>
-                <ul className="room-list">
-                    {trendingRooms.map((room) => (
-                    <li onClick={() => {
-                        setJoinedRoom(room);
-                      }}
-                      key={room.id} 
-                      className="room-item"
-                    >
-                        {room.name}
+            <div className="searchComponent">
+                <Search toggleMenu = {toggleMenu} setJoinedRoom={setJoinedRoom} joinedRoom={joinedRoom}/>
+            </div>
+            <div className="menu-body">
+                <ul className="menu-list">
+                    <li onClick={() => navigate('/profile')} >
+                        <Person />Profile    
                     </li>
-                    ))}
-                </ul>
 
-                <h2 className="gradient-heading">Community Rooms</h2>
-                <ul className="room-list">
-                    {communityRooms.map((room) => (
-                    <li onClick={() => {
-                        setJoinedRoom(room);
-                      }}
-                      key={room.id} 
-                      className="room-item"
-                    >
-                        {room.name}
+                    <li onClick={() => navigate('/room')}>
+                        <Chat />Chat
                     </li>
-                    ))}
-                </ul>
 
-                <h2 className="gradient-heading">Tech Rooms</h2>
-                <ul className="room-list">
-                    {techRooms.map((room) => (
-                    <li onClick={() => {
-                        setJoinedRoom(room);
-                      }}
-                      key={room.id} 
-                      className="room-item"
-                    >
-                        {room.name}
+                    <li onClick={() => navigate('/create')}>
+                        <Create />Create
                     </li>
-                    ))}
+
+                    <li >
+                        <Settings />Settings
+                    </li>
                 </ul>
+            
+
+                <div className="sample-rooms">
+
+                    <h2 className="gradient-heading">Trending Rooms</h2>
+                    <ul className="room-list">
+                        {trendingRooms.map((room) => (
+                        <li onClick={() => {
+                            setJoinedRoom(room);
+                        }}
+                        key={room.id} 
+                        className="room-item"
+                        >
+                            {room.name}
+                        </li>
+                        ))}
+                    </ul>
+
+                    <h2 className="gradient-heading">Community Rooms</h2>
+                    <ul className="room-list">
+                        {communityRooms.map((room) => (
+                        <li onClick={() => {
+                            setJoinedRoom(room);
+                        }}
+                        key={room.id} 
+                        className="room-item"
+                        >
+                            {room.name}
+                        </li>
+                        ))}
+                    </ul>
+
+                    <h2 className="gradient-heading">Tech Rooms</h2>
+                    <ul className="room-list">
+                        {techRooms.map((room) => (
+                        <li onClick={() => {
+                            setJoinedRoom(room);
+                        }}
+                        key={room.id} 
+                        className="room-item"
+                        >
+                            {room.name}
+                        </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     )
