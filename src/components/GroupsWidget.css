@@ -1,0 +1,10 @@
+.groups-container{
+    height: 100%;
+}
+.groups-head{
+    height: 10%;
+}
+.groups-body{
+    height: 90%;
+    overflow-y: scroll;
+}

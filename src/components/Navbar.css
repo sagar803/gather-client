@@ -3,8 +3,9 @@
     background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 5%;
 }
 .navbar-logo{
     font-size: 2rem;

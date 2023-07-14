@@ -1,0 +1,39 @@
+.settings-page{
+    width: 100%;
+    height: auto;
+}
+.settings-head{
+    height: 70px;
+}
+.settings-body{
+    height: calc(100% - 70px);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 8%;
+    gap: 5%;
+}
+.settings-widget{
+    height: 500px;
+    border-radius: 8px;
+    border: 2px solid rgba(128, 128, 128, 0.304);
+    padding: 20px;
+}
+.settings-widget{
+    height: 500px;
+    border-radius: 8px;
+    border: 2px solid rgba(128, 128, 128, 0.393);
+    padding: 20px;
+}
+@media (max-width: 750px) {
+    .settings-body{
+        flex-direction: column;
+    }
+    .settings-widget{
+        height: 500px;
+    }
+    .settings-widget{
+        height: 30%;
+    }
+
+}

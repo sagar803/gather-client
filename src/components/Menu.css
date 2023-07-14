@@ -3,20 +3,30 @@
   height: 100%;
   width: 100%;
   background-color: rgb(17, 18, 20); 
-  overflow: scroll;
   color: rgb(207, 207, 207);   
+}
+.searchComponent{
+  height: 80px;
+  position: sticky;
+  top: 0;
+}
+.menu-body{
+  overflow-y: scroll;
+  height: calc(100% - 80px);
 }
 .menu-list{
   margin: 5px;
-  padding: 10px;
+  padding: 0 10px;
 }
 .menu-list li{
   display: flex;
   align-items: center;
+  margin: 15px 5px;
   padding: 15px 15px;
   list-style-type: none;
-  gap: 15px;
-  border-radius: 8px;
+  gap: 35px;
+  border-radius: 5px;
+  transition: .2s;
 }
 .menu-list li:hover{
   color: white;

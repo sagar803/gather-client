@@ -1,14 +1,13 @@
 /*Menu head section */
 
 .searchContainer{
+  position: relative;
   width: 100%;
 }
 .search {
   z-index: 1;
   backdrop-filter: blur(2px);
-  position: sticky;
-  top: 0;
-  padding: 10px;
+  padding: 15px 10px;
   height: 50px;
   display: flex;
   gap: 10px;
@@ -36,8 +35,9 @@
 }
 
 .searchResult{
+  position: absolute;
   margin: 10px;
-  background-color: #ffffff21;
+  background-color: #5a5a5a;
   padding: 5px 5px;
   font-size: 1em;
   border-radius: 5px;

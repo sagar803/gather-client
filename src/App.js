@@ -5,6 +5,7 @@ import Room from './scenes/Room';
 import { useState, useEffect } from 'react';
 import CreateRoom from './components/CreateRoom';
 import Profile from './scenes/Profile';
+import Settings from './scenes/Settings';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={isAuth ? <Navigate to="/Profile" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} />
+              element={isAuth ? <Navigate to="/Profile" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} 
+            />
             <Route
               path="/room"
               element={isAuth ? <Room setIsAuth={setIsAuth}/> : <Navigate to="/" />}
@@ -40,6 +42,10 @@ function App() {
             <Route
               path="/profile"
               element={isAuth ? <Profile isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
+            />
+            <Route
+              path="/settings"
+              element={isAuth ? <Settings isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
             />
           </Routes>
         </ BrowserRouter>
