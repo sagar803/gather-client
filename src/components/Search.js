@@ -19,7 +19,7 @@ const Search = ({ toggleMenu, setJoinedRoom}) => {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     type='text' 
-                    placeholder="Start Typing.." 
+                    placeholder="Search..." 
                     />
                 <div className="clearButton" onClick={() => setSearch('')}>Clear</div>
             </div>

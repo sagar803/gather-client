@@ -79,6 +79,10 @@ const Navbar = () => {
               open={open}
               onClose={handleClose}
               TransitionComponent={Fade}
+              sx={{
+                color: "red",
+                backgroundColor: "rgba(0, 0, 0, 0.70)"
+              }}
             >
               <MenuItem onClick={() => navigate('/profile')} >
                 <Person />Profile  
