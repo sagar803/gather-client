@@ -11,15 +11,17 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 8%;
-    gap: 5%;
+    gap: 7%;
 }
 .profile-widget{
+    flex-basis: 60%;
     height: 500px;
     border-radius: 8px;
     border: 2px solid rgba(128, 128, 128, 0.304);
     padding: 20px;
 }
 .groups-widget{
+    flex-basis: 30%;
     height: 500px;
     border-radius: 8px;
     border: 2px solid rgba(128, 128, 128, 0.393);
@@ -29,11 +31,8 @@
     .profile-body{
         flex-direction: column;
     }
-    .profile-widget{
-        height: 500px;
-    }
     .groups-widget{
-        height: 30%;
+        margin-top: 50px;
     }
 
 }
