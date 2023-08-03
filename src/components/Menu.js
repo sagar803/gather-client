@@ -1,5 +1,5 @@
 import React  from "react";
-import {Create, Person, Chat, Settings } from '@mui/icons-material';
+import {Create, Person, Chat, Settings, Home } from '@mui/icons-material';
 import "./Menu.css";
 import { useNavigate } from "react-router-dom";
 import Search from "./Search";
@@ -42,6 +42,9 @@ const Menu = ({toggleMenu, setJoinedRoom, joinedRoom}) => {
             </div>
             <div className="menu-body">
                 <ul className="menu-list">
+                    <li onClick={() => navigate('/home')} >
+                        <Home />Home    
+                    </li>
                     <li onClick={() => navigate('/profile')} >
                         <Person />Profile    
                     </li>

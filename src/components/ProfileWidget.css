@@ -1,0 +1,7 @@
+.profile-widget-head{
+    display: flex;
+    gap: 20px;
+}
+.profile-widget-body{
+    padding: 15px;
+}

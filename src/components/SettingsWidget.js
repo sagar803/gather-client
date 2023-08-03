@@ -3,8 +3,8 @@ import { Typography } from '@mui/material';
 import './GroupsWidget.css'
 
 const SettingsWidget = ({userName}) => {
-    const stringifyRoom = localStorage.getItem('rooms');
-    const rooms = JSON.parse(stringifyRoom);
+    //const stringifyRoom = localStorage.getItem('rooms');
+    //const rooms = JSON.parse(stringifyRoom);
   
     return (
       <div className='groups-container'>

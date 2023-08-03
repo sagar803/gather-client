@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import CreateRoom from './components/CreateRoom';
 import Profile from './scenes/Profile';
 import Settings from './scenes/Settings';
-
+import Home  from './scenes/Home/Home';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -29,7 +29,11 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={isAuth ? <Navigate to="/Profile" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} 
+              element={isAuth ? <Navigate to="/home" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} 
+            />
+            <Route
+              path="/home"
+              element={isAuth ? <Home isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
             />
             <Route
               path="/room"

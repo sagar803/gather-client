@@ -1,5 +1,5 @@
 import React  from "react";
-import {Create, Person, Chat, Settings , Menu as MenuIcon, Logout} from '@mui/icons-material';
+import {Create, Person, Chat, Settings , Menu as MenuIcon, Logout, Home} from '@mui/icons-material';
 import { useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import './Navbar.css'
@@ -39,6 +39,9 @@ const Navbar = () => {
       {
         isNonMobileScreens ? (
           <ul className="nav-list">
+            <li onClick={() => navigate('/home')} >
+                <Home />Home    
+            </li>
             <li onClick={() => navigate('/profile')} >
                 <Person />Profile    
             </li>
@@ -84,6 +87,9 @@ const Navbar = () => {
                 backgroundColor: "rgba(0, 0, 0, 0.70)"
               }}
             >
+              <MenuItem onClick={() => navigate('/home')} >
+                <Home />Home  
+              </MenuItem>
               <MenuItem onClick={() => navigate('/profile')} >
                 <Person />Profile  
               </MenuItem>

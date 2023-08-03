@@ -36,7 +36,7 @@ const Auth = ({isAuth, setIsAuth}) => {
                 localStorage.setItem("user" , data.user.fullName);
                 localStorage.setItem("rooms" , JSON.stringify(data.rooms));
                 setIsAuth(true);
-                navigate('/profile');
+                navigate('/home');
             }
         } catch (error) {
             console.log(error)
