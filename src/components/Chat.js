@@ -10,7 +10,6 @@ import {
 } from 'react-feather';
 
 import './Chat.css'
-import { useNavigate } from "react-router-dom";
 
 const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
     
@@ -42,7 +41,7 @@ const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         setIsAuth(false);
-        {/*navigate('/'); */}
+        //navigate('/');
     }
     useEffect(() => {
         socket.on("joined_room", (data)=> {

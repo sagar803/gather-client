@@ -10,7 +10,7 @@ const Room = ({setIsAuth}) => {
     const isNonMobileScreens = useMediaQuery("(min-width:850px)");
     const userName = localStorage.getItem('user');
     const [showMenu, setShowMenu] = useState(true);
-    const [prevJoinedRoom, setPrevJoinedRoom] = useState({name: "", id: ""});
+   // const [prevJoinedRoom, setPrevJoinedRoom] = useState({name: "", id: ""});
     const [joinedRoom, setJoinedRoom] = useState({name: "", id: ""});
 
     const toggleMenu = () => {
@@ -58,6 +58,7 @@ const Room = ({setIsAuth}) => {
             socket.emit("leave_room", {userName, room: joinedRoom.id });
           }
         };
+    // eslint-disable-next-line
       }, [joinedRoom]);
 
 
