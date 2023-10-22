@@ -27,30 +27,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <Routes>
-            <Route 
-              path="/" 
-              element={isAuth ? <Navigate to="/home" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} 
-            />
-            <Route
-              path="/home"
-              element={isAuth ? <Home isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
-            />
-            <Route
-              path="/room"
-              element={isAuth ? <Room setIsAuth={setIsAuth}/> : <Navigate to="/" />}
-            />
-            <Route 
-              path="/create" 
-              element={isAuth ? <CreateRoom isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
-            />
-            <Route
-              path="/profile"
-              element={isAuth ? <Profile isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
-            />
-            <Route
-              path="/settings"
-              element={isAuth ? <Settings isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}
-            />
+            <Route path="/" element={isAuth ? <Navigate to="/home" /> : <Auth isAuth={isAuth} setIsAuth={setIsAuth}/>} />
+            <Route path="/home" element={isAuth ? <Home isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />} />
+            <Route path="/room" element={isAuth ? <Room setIsAuth={setIsAuth}/> : <Navigate to="/" />} />
+            <Route path="/create" element={isAuth ? <CreateRoom isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}  />
+            <Route path="/profile" element={isAuth ? <Profile isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />}  />
+            <Route path="/settings" element={isAuth ? <Settings isAuth={isAuth} setIsAuth={setIsAuth}/> : <Navigate to="/" />} />
           </Routes>
         </ BrowserRouter>
     </div>
