@@ -15,19 +15,40 @@ const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
     
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageHistory, setMessageHistory] = useState([]);
-    const isNonMobileScreens = useMediaQuery("(min-width:850px)");        
+    const isNonMobileScreens = useMediaQuery("(min-width:850px)");
+    const userId = localStorage.getItem('userId');
     
+    const getMessageHistory = async () => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_API}/messages/${joinedRoom.id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }) 
+            if (res.ok){
+                const data = await res.json();
+                console.log(data)
+                setMessageHistory(data);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
+        getMessageHistory();
         setMessageHistory([]);
     }, [joinedRoom]);
       
     const sendMessage = async () => {
         if (currentMessage !==  ""){
             const messageData = {
-                room : joinedRoom.id,
-                author : userName,
-                message : currentMessage,
-                time : new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes() 
+                content : currentMessage,
+                senderId: userId,
+                time : new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
+                roomId : joinedRoom.id,
+                senderName : userName,
             }
             await socket.emit('send_message', messageData)
             setMessageHistory((msg) => [...msg, messageData])
@@ -76,14 +97,14 @@ const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
                             </div>
                             {messageHistory.map((messageContent) => {
                                 return (
-                                    <div className="message" id={userName === messageContent.author? "you" : "other"}>
+                                    <div className="message" id={userName === messageContent.senderName? "you" : "other"}>
                                         <div>
                                             <div className="message-content">
-                                                <p>{messageContent.message}</p>
+                                                <p>{messageContent.content}</p>
                                             </div>
                                             <div className="message-meta">
                                                 <p id="time">{messageContent.time}</p>
-                                                <p id="author">{messageContent.author}</p>
+                                                <p id="author">{messageContent.senderName}</p>
                                             </div>
                                         </div>
                                     </div>
