@@ -11,6 +11,20 @@ const Search = ({ toggleMenu, setJoinedRoom}) => {
     const [search, setSearch] = useState('');
     const filteredRooms = rooms.filter((room) => room.name.toLowerCase().includes(search.toLowerCase()));
 
+    const handleRoomJoin = (room) => {
+        console.log(room);
+        if(room.isPrivate){
+            const roomPassword = prompt('Password Required')
+            if(roomPassword === room.password){
+                setJoinedRoom({name: room.name, id: room._id});
+            } else  {
+                alert('Incorrect Password')
+            }
+        } else {
+            setJoinedRoom({name: room.name, id: room._id});
+        }
+    }
+
     return (
         <div className="searchContainer">
             <div className='search'>                
@@ -30,7 +44,7 @@ const Search = ({ toggleMenu, setJoinedRoom}) => {
                             <div
                                 key={room._id}
                                 onClick={() => {
-                                    setJoinedRoom({name: room.name, id: room._id});
+                                    handleRoomJoin(room);
                                 }}
                             >
                                 <SearchResult
