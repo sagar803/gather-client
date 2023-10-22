@@ -11,12 +11,8 @@ const Auth = ({isAuth, setIsAuth}) => {
     const [credentials , setCredentials ] = useState({fullName : '', email : '' , password : ''});
      
     const togglePageType = () => {
-        if (pageType === "login"){
-            setPageType("register");
-        }
-        else{
-            setPageType("login");
-        }
+        if (pageType === "login") setPageType("register");
+        else setPageType("login");
     }
 
     const handleSubmit = async () => {
