@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ProfileWidget from '../components/ProfileWidget';
-import GroupsWidget from '../components/GroupsWidget';
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import ProfileWidget from '../../components/ProfileWidget';
+import GroupsWidget from '../../components/GroupsWidget';
 import './Profile.css';
 
 const Profile = ({isAuth ,setIsAuth}) => {
