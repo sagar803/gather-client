@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import Auth from './scenes/Auth';
-import Room from './scenes/Room';
+import Auth from './scenes/Auth/Auth';
+import Room from './scenes/Room/Room';
 import { useState, useEffect } from 'react';
-import CreateRoom from './components/CreateRoom';
-import Profile from './scenes/Profile';
-import Settings from './scenes/Settings';
+import Profile from './scenes/Profile/Profile';
+import Settings from './scenes/Settings/Settings';
 import Home  from './scenes/Home/Home';
+import CreateRoom  from './scenes/CreateRoom/CreateRoom';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);

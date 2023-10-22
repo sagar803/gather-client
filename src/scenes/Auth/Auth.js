@@ -1,5 +1,5 @@
 import React , { useState } from "react";
-import Footer from '../components/Footer';
+import Footer from '../../components/Footer';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';

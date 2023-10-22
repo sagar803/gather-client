@@ -1,8 +1,8 @@
 import { Box, useMediaQuery } from "@mui/material";
 import React , { useEffect, useState } from "react";
 import io from 'socket.io-client'
-import Chat from '../components/Chat';
-import Menu from '../components/Menu';
+import Chat from "../../components/Chat";
+import Menu from '../../components/Menu';
 
 const socket = io.connect(`${process.env.REACT_APP_API}`);
 

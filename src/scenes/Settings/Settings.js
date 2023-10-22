@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ProfileWidget from '../components/ProfileWidget';
-import SettingsWidget from '../components/SettingsWidget';
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import ProfileWidget from '../../components/ProfileWidget';
+import SettingsWidget from '../../components/SettingsWidget';
 import './Settings.css';
 
 const Settings = ({isAuth ,setIsAuth}) => {
