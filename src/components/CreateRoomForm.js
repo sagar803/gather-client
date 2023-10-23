@@ -50,7 +50,7 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
           placeholder='Name'
-          />
+        />
         <input
           type="text"
           class="input"                
@@ -58,7 +58,7 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           required
-          />
+        />
         <input
           type="text"
           class="input"                
@@ -67,7 +67,7 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
           value={formData.customId}
           onChange={(e) => setFormData({ ...formData, customId: e.target.value })}
           required
-          />
+        />
         <input
           type="text"
           class="input"
@@ -76,7 +76,7 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
           value={formData.category}
           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
           required
-          />
+        />
         {formData.isPrivate && (
             <input
               class="input"
