@@ -30,6 +30,8 @@ const Auth = ({isAuth, setIsAuth}) => {
                 localStorage.setItem("token" , data.token);
                 localStorage.setItem("userId" , data.user._id);
                 localStorage.setItem("user" , data.user.fullName);
+                const filtered = data.rooms.map(room => ({ name: room.name, _id: room._id }));
+                console.log(filtered)
                 localStorage.setItem("rooms" , JSON.stringify(data.rooms));
                 setIsAuth(true);
                 navigate('/home');
