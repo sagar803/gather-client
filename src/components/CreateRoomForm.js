@@ -42,6 +42,7 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
   return (
     <div className='form-container'>
       <form className='create-room-form' onSubmit={handleSubmit}>
+        <FormControlLabel control={ <Switch checked={formData.isPrivate} onChange={handleTogglePrivate} color="primary" /> } label="Private Room"/>
         <input
           type="text"
           class="input"
@@ -58,27 +59,6 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           required
           />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={formData.isPrivate}
-              onChange={handleTogglePrivate}
-              color="primary"
-            />
-          }
-          label="Private Room"
-          />
-        {formData.isPrivate && (
-            <input
-              class="input"
-              placeholder="Password"
-              fullWidth
-              type="password"
-              value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              required
-              />
-        )}
         <input
           type="text"
           class="input"                
@@ -97,6 +77,17 @@ const CreateRoomForm = ({isAuth, setIsAuth}) => {
           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
           required
           />
+        {formData.isPrivate && (
+            <input
+              class="input"
+              placeholder="Password"
+              fullWidth
+              type="password"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              required
+              />
+        )}
         <button class="ui-btn"><span>Create</span></button>
       </form>
     </div>
