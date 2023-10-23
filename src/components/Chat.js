@@ -49,6 +49,7 @@ const Chat = ({ setIsAuth, toggleMenu, socket, userName, joinedRoom}) => {
                 time : new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
                 roomId : joinedRoom.id,
                 senderName : userName,
+                chatType: 'group',
             }
             await socket.emit('send_message', messageData)
             setMessageHistory((msg) => [...msg, messageData])
