@@ -17,6 +17,7 @@
 .chat-room-description p{
     font-size: 14px;
     font-weight: 100;
+    color: gray;
 }
 .create-chat-room-form{
     width: min(400px, 100%);

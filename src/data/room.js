@@ -163,7 +163,7 @@ export const trendingRooms = [
   
   export const techRooms = [
     {
-      "_id": '65367378cc60f414d59abc21',
+      "_id": '65367378cc60f414d59abc20',
       "name": "UI/UX Design",
       "description": "Discuss user interface and user experience design principles and techniques.",
       "isPrivate": false,
@@ -174,7 +174,7 @@ export const trendingRooms = [
       "isActive": true
     },
     {
-      "_id": '65367378cc60f414d59abc22',
+      "_id": '65367378cc60f414d59abc21',
       "name": "Machine Learning",
       "description": "Explore the world of machine learning algorithms, models, and applications.",
       "isPrivate": false,
@@ -185,7 +185,7 @@ export const trendingRooms = [
       "isActive": true
     },
     {
-      "_id": '65367378cc60f414d59abc23',
+      "_id": '65367378cc60f414d59abc22',
       "name": "Data Science",
       "description": "Discuss data analysis, statistics, and machine learning in the context of real-world data.",
       "isPrivate": false,
@@ -196,7 +196,7 @@ export const trendingRooms = [
       "isActive": true
     },
     {
-      "_id": '65367378cc60f414d59abc24',
+      "_id": '65367378cc60f414d59abc23',
       "name": "Mobile App Development",
       "description": "Explore mobile app development frameworks, technologies, and best practices.",
       "isPrivate": false,
@@ -207,7 +207,7 @@ export const trendingRooms = [
       "isActive": true
     },
     {
-      "_id": '65367734297e734580675d72',
+      "_id": "65367378cc60f414d59abc24",
       "name": "Web Development",
       "description": "Discuss web technologies, front-end and back-end development, and web design trends.",
       "isPrivate": false,
